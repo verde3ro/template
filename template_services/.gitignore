@@ -1,0 +1,8 @@
+/target/
+/.settings
+/*.classpath
+/*.factorypath
+/*.project
+.settings
+/*.iml
+/.sts4-cache

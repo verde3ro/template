@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Footer</title>
+</head>
+<body>
+	<footer class="main-footer" th:fragment="footer">
+		<div class="float-right d-none d-sm-block">
+			<b>Versi&#243;n</b> 1.1
+		</div>
+		<strong>Copyright &#64; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2017</span> <a href="http://www.queretaro.gob.mx/" target="_blank">Poder Ejecutivo del Estado de Quer&#233;taro</a>.
+		</strong> Todos los derechos reservados.
+		<!-- jQuery -->
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/jquery/jquery-3.4.1.min.js'}}" type="text/javascript"></script>
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/jquery/jquery.blockUI.js'}}" type="text/javascript"></script>
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/jquery/jquery.base64.min.js'}}" type="text/javascript"></script>
+		<!-- Bootstrap 4 -->
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/bootstrap/js/bootstrap.bundle.min.js'}}" type="text/javascript"></script>
+		<!-- Bootbox -->
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/bootbox/bootbox.js'}}" type="text/javascript"></script>
+		<!-- AdminLTE App -->
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/js/adminlte.min.js'}}" type="text/javascript"></script>
+		<!-- SweetAlert2 -->
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/sweetalert2/sweetalert2.all.min.js'}}" type="text/javascript"></script>
+		<!-- JS Cookie -->
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/jquery/js.cookie-2.2.1.min.js'}}" type="text/javascript"></script>
+		<!-- JS Storage -->
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/jquery/js.storage.min.js'}}" type="text/javascript"></script>
+		<!-- Demo -->
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/js/demo.js'}}" type="text/javascript"></script>
+		<!-- General -->
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/js/general.js'}}" type="text/javascript"></script>
+		<!-- Page -->
+		<th:block layout:fragment="script"></th:block>
+	</footer>
+</body>
+</html>

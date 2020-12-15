@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">Template</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<!-- Font Awesome -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/fontawesome-free/css/all.min.css'}}"  type="text/css" />
+	<!-- Ionicons -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/ionicons/ionicons.min.css'}}" type="text/css" />
+	<!-- icheck bootstrap -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/icheck-bootstrap/icheck-bootstrap.min.css'}}" type="text/css" />
+	<!-- Theme style -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources')+ '/resources/AdmLTE_B4/css/adminlte.min.css'}}" type="text/css" />
+	<!-- Google Font: Source Sans Pro -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" />
+	<!-- SweetAlert2 -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'}}" />
+	<link rel="shortcut icon" type="image/x-icon" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/img/favicon.ico'}}" />
+</head>
+<body class="hold-transition login-page">
+	<div class="login-box">
+		<!--
+			<div class="login-logo">
+				<a href="#"><b>Template para los sistemas con Boostrap 4 y FormValidation 1.5.0v</b></a>
+			</div>
+		-->
+		<!-- /.login-logo -->
+		<div class="login-box-body" layout:fragment="body"></div>
+		<!-- /.login-box -->
+	</div>
+	<!-- jQuery -->
+	<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/jquery/jquery-3.4.1.min.js'}}" type="text/javascript"></script>
+	<!-- AdminLTE App -->
+	<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/js/adminlte.min.js'}}"></script>
+	<!-- Bootstrap 4 -->
+	<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/bootstrap/js/bootstrap.bundle.min.js'}}"></script>
+	<!-- Bootbox -->
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/bootbox/bootbox.js'}}" type="text/javascript"></script>
+	<!-- JS Cookie -->
+	<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/jquery/js.cookie-2.2.1.min.js'}}" type="text/javascript"></script>
+	<!-- JS Storage -->
+	<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/jquery/js.storage.min.js'}}" type="text/javascript"></script>
+	<!-- General -->
+	<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/js/general.js'}}" type="text/javascript"></script>
+	<!-- SweetAlert2 -->
+	<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/sweetalert2/sweetalert2.all.min.js'}}" type="text/javascript"></script>
+	<th:block layout:fragment="script"></th:block>
+</body>
+</html>

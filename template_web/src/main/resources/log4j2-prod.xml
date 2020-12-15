@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+	<Properties>
+		<Property name="log-path">logs</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</Console>
+		<RollingFile name="App-File-Appender" fileName="${jboss.server.home.dir}/template.log" filePattern="${jboss.server.home.dir}/template-%d{yyyy-MM-dd}.log.gz" ignoreExceptions="false">
+			<PatternLayout>
+				<Pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="5" />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.oracle" level="info" additivity="false">
+			<AppenderRef ref="App-File-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<Logger name="org.hibernate" level="info" additivity="false">
+			<AppenderRef ref="App-File-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<Logger name="org.springframework" level="info" additivity="false">
+			<AppenderRef ref="App-File-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<Logger name="mx.gob.queretaro" level="info" additivity="false">
+			<AppenderRef ref="App-File-Appender" />
+			<AppenderRef ref="Console-Appender" />
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="App-File-Appender" />
+		</Root>
+	</Loggers>
+</Configuration>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout/login}">
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/FormValidation/css/formValidation.min.css'}}" type="text/css" />
+</head>
+<body>
+	<div layout:fragment="body">
+		<div class="card">
+			<div class="card-body login-card-body">
+				<div class="login-logo">
+					<img th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/img/logo.png'}}"
+						alt="logo" style="width: 99%;" />
+				</div>
+				<p class="login-box-msg">Iniciar Sesion</p>
+				<div class="row">
+					<div class="col-lg-12" id="divLblMsj" style="text-align: center; color: #DD4B39; font-size: 15px;" th:text="${@environment.getProperty('application.environment')}"></div>
+				</div>
+				<form id="frmLogin" name="frmLogin" method="post" th:action="@{/login}">
+					<div class="form-group mb-3">
+						<div class="input-group">
+							<input id="txtUsuario" name="txtUsuario" class="form-control" type="text" placeholder="Usuario" />
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fa fa-user"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group mb-3">
+						<div class="input-group">
+							<input id="txtPassword" name="txtPassword" class="form-control" type="password" placeholder="Contrase&#241;a" autocomplete="off" />
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-lock"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12" id="divLblMsj" style="text-align: center; color: #DD4B39;" th:if="${param.error != null && not #strings.isEmpty(param.error) && #strings.isEmpty(session['SPRING_SECURITY_LAST_EXCEPTION'].message)}">
+							<label id="lblMensaje" style="font-size: 14px;">Usuario/Contrase&ntilde;a es incorrecto.</label>
+							<br />
+							<br />
+						</div>
+						<div class="col-lg-12" id="divLblMsj" style="text-align: center; color: #DD4B39;"
+							th:if="${param.error != null && not #strings.isEmpty(param.error) && session['SPRING_SECURITY_LAST_EXCEPTION'] != null && not #strings.isEmpty(session['SPRING_SECURITY_LAST_EXCEPTION'].message)}">
+							<label id="lblMensaje" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" style="font-size: 14px;">Ocurri&#243; un error. Comun&#237;cate con el Administrador.</label>
+							<br />
+							<br />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-8">
+							<i class="fas fa-asterisk" style="font-size: 12px;"> Todos los campos son requeridos</i>
+						</div>
+						<!-- /.col -->
+						<div class="col-lg-4">
+							<button type="submit" id="btnEntrar" class="btn btn-primary btn-block">Entrar</button>
+						</div>
+						<!-- /.col -->
+					</div>
+					<div class="row">
+						<div class="col-lg-9"
+							style="padding-left: 8px; padding-right: 0px;">
+							<span
+								style="text-align: left; color: #337AB7; font-size: 12px; padding-left: 0px; padding-right: 0px;">Se recomienda usar los siguientes navegadores: </span>
+						</div>
+						<!-- /.col -->
+						<div class="col-lg-3">
+							<img th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/img/browsers.png'}}"
+								alt="logo" style="width: 60px;" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<th:block layout:fragment="script">
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/js/es6-sham.min.js'}}" type="text/javascript"></script>
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/FormValidation/js/FormValidation.min.js'}}" type="text/javascript"></script>
+		<script th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/FormValidation/js/plugins/Bootstrap.js'}}"></script>
+		<script th:src="@{/js/views/index.js}" type="text/javascript"></script>
+		<script th:src="@{/js/views/verificacionBrowser.js}" type="text/javascript"></script>
+	</th:block>
+</body>
+</html>

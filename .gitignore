@@ -1,0 +1,17 @@
+/.settings
+/.project
+/sakilaEarModule/.settings
+/sakilaEarModule/.project
+/sakilaEjbModule/.settings
+/sakilaEjbModule/.classpath
+/sakilaEjbModule/.project
+/sakilaEjbModule/target
+/sakilaEarModule/target
+/sakilaWarModule/.settings
+/sakilaWarModule/target
+/sakilaWarModule/.classpath
+/sakilaWarModule/.project
+/.idea
+/*.iml
+/logs
+/.vscode

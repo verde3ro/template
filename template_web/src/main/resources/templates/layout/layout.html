@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">Template</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/bootstrap/css/bootstrap.min.css'}}" />
+	<!-- Font Awesome -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/fontawesome-free/css/all.min.css'}}" />
+	<!-- Ionicons -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/ionicons/ionicons.min.css'}}" type="text/css" />
+	<!-- overlayScrollbars -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/css/adminlte.min.css'}}" />
+	<!-- Google Font: Source Sans Pro -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" />
+	<!-- overlayScrollbars -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources')+ '/resources/AdmLTE_B4/plugins/overlayScrollbars/css/OverlayScrollbars.min.css'}}" />
+	<!-- SweetAlert2 -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css'}}" />
+	<!-- Estilo GEQ -->
+	<link rel="stylesheet" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/css/geq.css'}}" />
+	<link rel="shortcut icon" type="image/x-icon" th:href="@{${@environment.getProperty('application.url-resources') + '/resources/img/favicon.ico'}}" />
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<!-- Site wrapper -->
+	<div class="wrapper">
+		<header th:replace="layout/header :: header"> Encabezado </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside th:replace="layout/menu :: menu">Menu</aside>
+		<!-- Main content -->
+		<div class="content-wrapper">
+			<th:block th:if="${not #strings.isEmpty(page)}">
+				<!-- Content Header (Page header) -->
+				<section class="content-header">
+					<div class="container-fluid">
+						<div class="row mb-2">
+							<div class="col-sm-6">
+								<h1>
+									<span th:text="${page}"></span> <small th:text="${complement}"></small>
+								</h1>
+							</div>
+							<div class="col-sm-6">
+								<ol class="breadcrumb float-sm-right">
+									<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Template</a></li>
+									<li class="breadcrumb-item" th:if="${not #strings.isEmpty(section)}"><a href="#" th:text="${section}">Inicio</a></li>
+									<li class="breadcrumb-item" th:if="${not #strings.isEmpty(subSection)}"><a href="#" th:text="${subSection}"></a></li>
+									<li class="breadcrumb-item active" th:text="${page}">Inicio</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</section>
+			</th:block>
+			<section class="content" layout:fragment="body"></section>
+		</div>
+		<!-- /.content-wrapper -->
+		<footer th:replace="layout/footer :: footer"> </footer>
+		<!-- Control Sidebar -->
+		<aside th:replace="layout/control :: control">Control Sidebar</aside>
+	</div>
+</body>
+</html>

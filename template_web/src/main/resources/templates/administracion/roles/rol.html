@@ -1,0 +1,82 @@
+<div class="row">
+	<div class="col-lg-12">
+		<form id="frmRol" name="frmRol" role="form" method="post"
+			data-fvp-bootstrap="true"
+			data-fvp-bootstrap___class="FormValidation.plugins.Bootstrap"
+			data-fvp-trigger="true"
+			data-fvp-trigger___class="FormValidation.plugins.Trigger"
+			data-fvp-icon="true"
+			data-fvp-icon___class="FormValidation.plugins.Icon"
+			data-fvp-icon___valid="fas fa-check"
+			data-fvp-icon___invalid="fas fa-times"
+			data-fvp-icon___validating="fas fa-sync">
+			<div class="form-group">
+				<label for="txtRol" class="control-label">* Rol</label> <input
+					type="hidden" class="form-control" name="txtIdRol" id="txtIdRol"
+					th:value="${txtIdRol}" placeholder="Id" /> <input type="text"
+					class="form-control" name="txtRol" id="txtRol" th:value="${txtRol}"
+					placeholder="Rol" required data-fv-notempty="true"
+					style="text-transform: uppercase;" />
+			</div>
+			<div class="form-group">
+				<label for="txtDescripcion" class="control-label">*
+					Descripci&#243;n:</label> <input type="text" class="form-control"
+					name="txtDescripcion" id="txtDescripcion"
+					th:value="${txtDescripcion}" placeholder="Descripci&#243;n"
+					required data-fv-notempty="true" />
+			</div>
+		</form>
+	</div>
+	<div class="col-lg-12">
+		<div class="row">
+			<p></p>
+		</div>
+	</div>
+	<div class="col-lg-12">
+		<h4 class="page-header">
+			<span class="label label-info">Recursos</span>
+		</h4>
+		<form id="frmRecurso" name="frmRecurso" role="form" method="post"
+			data-fvp-bootstrap="true"
+			data-fvp-bootstrap___class="FormValidation.plugins.Bootstrap"
+			data-fvp-trigger="true"
+			data-fvp-trigger___class="FormValidation.plugins.Trigger"
+			data-fvp-icon="true"
+			data-fvp-icon___class="FormValidation.plugins.Icon"
+			data-fvp-icon___valid="fas fa-check"
+			data-fvp-icon___invalid="fas fa-times"
+			data-fvp-icon___validating="fas fa-sync">
+			<div class="form-group">
+				<label for="cmbTxtRecurso" class="control-label">* Recurso</label> 
+				<select
+					class="form-control" name="cmbTxtRecurso" id="cmbTxtRecurso"
+					required data-fv-notempty="true">
+					<option value="" selected="selected">Selecciona una opción</option>
+				</select>
+			</div>
+			<div class="form-group pull-right">
+				<button type="submit" id="btnAgregarRecurso" class="btn btn-success"
+					data-toggle="tooltip" data-placement="top" title="Agregar Recurso">
+					<i class="fas fa-plus-circle"></i></span>&nbsp;Agregar Recurso
+				</button>
+			</div>
+		</form>
+		<table id="tblRecursos" data-mobile-responsive="true"
+			data-locale="es-MX" data-height="250" data-pagination="true"
+			data-page-size="10" data-page-list="[20, 30, 50, 100, 200]"
+			data-search="false" data-toggle="false" data-show-toggle="false"
+			data-resizable="false" data-striped="false" data-show-refresh="false"
+			data-show-footer="false"
+			data-classes="table table-bordered table-hover table-striped table-sm">
+			<thead>
+				<tr>
+					<th data-field="id" data-visible="false" data-sortable="true">ID</th>
+					<th data-field="recurso" data-sortable="true">Recurso</th>
+					<th data-field="descripcion" data-sortable="true">Descripci&#243;n</th>
+					<th data-sortable="false" data-align="center"
+						data-formatter="roles.recursosFormatter" data-width="100">Acciones</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>

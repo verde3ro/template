@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Men&uacute;</title>
+</head>
+<body>
+	<aside class="main-sidebar sidebar-dark-primary elevation-4" th:fragment="menu">
+		<!-- Brand Logo -->
+		<a href="#" class="brand-link navbar-primary">
+			<img th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/img/heraldica.png'}}" alt="heraldica Logo" class="brand-image img-circle elevation-3" style="opacity: .8" />
+			<span class="brand-text font-weight-light"><strong>Template</strong></span>
+		</a>
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<!-- Sidebar user (optional) -->
+			<div class="user-panel mt-3 pb-3 mb-3 d-flex" sec:authorize="isAuthenticated()">
+				<div class="image">
+					<img th:src="@{${@environment.getProperty('application.url-resources') + '/resources/AdmLTE_B4/img/user-160x160.png'}}" class="img-circle elevation-2" alt="User Image" />
+				</div>
+				<div class="info" th:if="${session.usuario != null}">
+					<a href="#" class="d-block font-weight-bold" th:text="${session.usuario.usuario}">Usuario</a>
+					<a href="#" class="small" th:text="${session.usuario.nombre}">Usuario</a>
+				</div>
+			</div>
+			<!-- Sidebar Menu -->
+			<nav class="mt-2">
+				<ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+					<li class="nav-header ">MEN&#218; DE NAVEGACI&#211;N</li>
+					<li class="nav-item" th:classappend="${#strings.equals(page,'Inicio')} ? menu-open : ''">
+						<a class="nav-link" th:classappend="${#strings.equals(page,'Inicio')} ? active: ''" sec:authorize="hasAnyRole('ROLE_ADMIN')" href="../inicio" th:href="@{/inicio}">
+							<i class="fas fa-home nav-icon"></i>
+							<p>&#160;Inicio</p>
+						</a>
+					</li>
+					<li sec:authorize="hasAnyRole('ROLE_ADMIN')" class="nav-item has-treeview" th:classappend="${#strings.equals(section,'Administraci&#243;n')} ? menu-open : ''">
+						<a href="#" class="nav-link" th:classappend="${#strings.equals(section,'Administraci&#243;n')} ? active : ''">
+							<i class="fas fa-user-cog nav-icon"></i>
+							<p>&#160;Administraci&#243;n <i class="right fas fa-angle-left"></i></p>
+						</a>
+						<ul class="nav nav-treeview" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+							<li class="nav-item">
+								<a class="nav-link" th:classappend="${#strings.equals(page,'Usuarios')} ? active : ''" href="../../administracion/usuarios/index" th:href="@{/administracion/usuarios/index}">
+									<i class="fas fa-users nav-icon"></i>
+									<p>&#160;Usuarios</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" th:classappend="${#strings.equals(page,'Roles')} ? active : ''" href="../../administracion/roles/index" th:href="@{/administracion/roles/index}">
+									<i class="fas fa-lock nav-icon"></i>
+									<p>&#160;Roles</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" th:classappend="${#strings.equals(page,'Recursos')} ? active : ''" href="../../administracion/recursos/index" th:href="@{/administracion/recursos/index}">
+									<i class="far fa-window-restore nav-icon"></i>
+									<p>Recursos</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" th:classappend="${#strings.equals(page,'Parametros')} ? active : ''" href="../../administracion/parametros/index" th:href="@{/administracion/parametros/index}">
+									<i class="fab fa-readme nav-icon"></i>
+									<p>Par&#225;metros</p>
+								</a>
+							</li>
+							<li class="nav-item has-treeview" sec:authorize="hasAnyRole('ROLE_ADMIN')" th:classappend="${#strings.equals(subSection,'Catálogos')} ? menu-open : ''">
+								<a href="#" class="nav-link" th:classappend="${#strings.equals(subSection,'Catálogos')} ? active : ''">
+									<i class="fas fa-book nav-icon"></i>
+									<p>Cat&#225;logos<i class="right fas fa-angle-left"></i></p>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<!-- /.sidebar-menu -->
+		</div>
+	</aside>
+	<!-- /.sidebar -->
+</body>
+</html>
